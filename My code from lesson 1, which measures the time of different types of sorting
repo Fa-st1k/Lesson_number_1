@@ -1,0 +1,55 @@
+import random
+import time
+numbers = []
+for _ in range(1000000):
+    numbers.append(random.randint(1, 10))
+    start_time = time.time()
+numbers.sort(key = None, reverse=False)
+end_time = time.time()
+ex_time = end_time-start_time
+print(f"sort - {ex_time}")
+start_time = time.time()
+def add_fine (nums):
+    return [num + 5 for num in nums]
+add_fine(numbers)
+end_time = time.time()
+ex_time_add = end_time-start_time
+print(f"five - {ex_time_add}")
+start_time = time.time()
+def add_forse3 (nums):
+    return [num ** 3 for num in nums]
+add_fine(numbers)
+end_time = time.time()
+ex_time_add_forse3 = end_time-start_time
+print(f"forse3 - {ex_time_add_forse3}")
+
+
+def bubble_sort(nums):
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(len(nums) - 1):
+            if nums[i] > nums[i+ 1]:
+                nums[i], nums[i + 1] = nums[i + 1],nums[i]
+                swapped = True
+start_time = time.time()
+bubble_sort(numbers)
+end_time = time.time()
+ex_time_add_castom = end_time-start_time
+print(f"castom - {ex_time_add_castom}")
+print(numbers)
+def bubble_sort(nums):
+    # Устанавливаем swapped в True, чтобы цикл запустился хотя бы один раз
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(len(nums) - 1):
+            if nums[i] > nums[i + 1]:
+                # Меняем элементы
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+                # Устанавливаем swapped в True для следующей итерации
+                swapped = True
+# Проверяем, что оно работает
+random_list_of_nums = [5, 2, 1, 8, 7]
+bubble_sort(random_list_of_nums)
+print(random_list_of_nums)
